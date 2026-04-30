@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #4FC3F7;
+  --color-brand-dark: #0288D1;
+  --color-brand-light: #F0F9FF;
+  --color-brand-muted: #E1F5FE;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-4xl: 2.5rem;
+
+  --shadow-blue: 0 10px 15px -3px rgba(79, 195, 247, 0.2);
+}
+
+/* Responsive base styles */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-[#F0F9FF] text-slate-800 antialiased;
+    font-size: 16px;
+  }
+
+  /* Safe area for mobile browsers */
+  @supports (padding: max(0px)) {
+    body {
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+  }
+}
+
+/* Responsive components */
+@layer components {
+  .polish-card {
+    @apply bg-white rounded-3xl border border-blue-50 shadow-sm transition-all duration-300;
+  }
+  
+  .polish-card-hover {
+    @apply hover:shadow-lg hover:shadow-blue-100 hover:border-blue-100 transform hover:-translate-y-1;
+  }
+
+  /* Responsive text utilities */
+  .text-responsive-xl {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl;
+  }
+
+  /* Responsive spacing */
+  .p-responsive {
+    @apply p-4 sm:p-6 lg:p-10;
+  }
+
+  /* Touch-friendly button minimum size */
+  .btn-touch {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Responsive form inputs */
+  .input-responsive {
+    @apply text-base sm:text-sm;
+    @apply py-3 sm:py-4;
+    @apply px-4 sm:px-6;
+  }
+}
